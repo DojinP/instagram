@@ -1,0 +1,252 @@
+* {
+    border: none;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: #ffff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+
+}
+
+body {
+    background-color: #fafafa;
+    height: 100vh;
+}
+
+main {
+    height: 100vh;
+    margin: auto;
+    max-width: 935px;
+}
+
+h1 { margin: 20px 0; }
+ul { list-style: none; }
+
+/**
+ * Flex rules
+ */
+
+.flex {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.direction-column {
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -moz-box-direction: normal;
+    -moz-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.justify-content-center {
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+
+.align-items-center {
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.flex-wrap {
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+/**
+ *
+ */
+
+.panel {
+    background-color: white;
+    border: 1px solid #dbdbdb;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+#auth { max-width: 350px; }
+#mobile { max-width: 454px; }
+
+#mobile img {
+    height: 618px;
+}
+
+/**
+ * Login section
+ */
+.login-with-fb,
+form { width: 100%; }
+
+.register,
+form { padding: 30px 20px; }
+
+.login-with-fb { padding: 30px 20px 20px 20px; }
+
+form .sr-only { 
+	display: none; 
+}
+
+form input {
+    background-color: #fafafa;
+    border: 1px solid #dbdbdb;
+    border-radius: 3px;
+    color: #808080;
+    margin-bottom: 8px;
+    padding: 10px 10px;
+    width: 100%;
+}
+
+
+form input::placeholder {
+    color: #808080;
+}
+
+form input:focus {
+    border: 1px solid #808080;
+    outline: none;
+} 
+
+form button {
+    background-color: #0095f6;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: bold;
+    height: 35px;
+    margin-top: 10px;
+    width: 100%;
+}
+
+/**
+ * Separator login form from login with fb
+ */
+ 
+.separator {
+	justify-content: space-between;
+} 
+ 
+.separator span {
+    background-color: #dbdbdb;
+    height: 1px;
+    /* width: calc(100% - 50px); */
+    width: 35%;
+}
+
+.separator .or {
+    color: #808080;
+    font-weight: bold;
+    font-size: 13px;
+    text-align: center;
+    width: 20%;
+}
+
+/* .separator { padding: 0 10px; } */
+.separator span:first-child { margin-left: 20px;}
+.separator span:last-child { margin-right: 20px;}
+
+/**
+ * Login with fb section
+ */
+ 
+.login-with-fb{
+	justify-content: center;	
+	align-content: center;
+}
+ 
+.login-with-fb span { 
+    color: #385185; 
+}
+
+.login-with-fb > span { font-size: 14px; font-weight: 600; }
+/* .login-with-fb span:last-child { margin-bottom: 15px; } */
+
+.facebook-icon{
+	position: relative;
+	background-image: url(https://static.cdninstagram.com/rsrc.php/v3/y5/r/TJztmXpWTmS.png);
+    background-repeat: no-repeat;
+    background-position: -414px -259px;
+    height: 16px;
+    width: 16px;
+    margin-right: 10px;
+    /* vertical-align: baseline; */
+}
+
+/**
+ * Forgot password section
+ *
+ */
+ 
+.panel:first-child a{
+	 font-size:12px;
+	 color: rgb(0, 55, 107);
+	 text-decoration: none;
+	 text-align: center;
+}
+
+/**
+ * Register section
+ */
+.register * { font-size: 14px; }
+.register a { 
+    color: #0095f6;
+    font-weight: bold;
+}
+
+.register p { margin-right: 5px; }
+
+/**
+ * App download
+ */
+.app-download { /* padding: 15px; */ }
+.app-download p { padding: 5px 0 10px 0; font-size: 14px;}
+.app-download img { 
+    height: 40px; 
+    margin: 0 5px;
+}
+
+/**
+ * Footer
+ */
+footer {
+    margin: 0 auto 30px auto;
+    max-width: 935px;
+}
+footer ul { /* margin-bottom: 20px; */ }
+footer ul li { margin: 0 10px 10px; } 
+footer ul li a { color: #385185; }
+footer .copyright { color: #808080; }
+footer ul li a,
+footer .copyright { 
+    /* font-weight: bold; */
+    font-size: 12px;
+    text-decoration: none;
+    text-align: center;
+    /* text-transform: uppercase; */
+ }
+
+footer p{
+	margin-bottom: 30px;
+	/* padding-bottom: 30px; */
+}
+/**
+ * Media queries
+ */
+
+@media screen and (max-width: 767px) {
+    main { margin: 30px auto 50px auto; }
+    footer .copyright,
+    footer ul li a { font-size: 13px; }
+}

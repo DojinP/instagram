@@ -1,0 +1,82 @@
+@charset "UTF-8";
+.popup-wrap{
+  background-color:rgba(0,0,0,.3);
+  justify-content:center; 
+  align-items:center;     
+  position:fixed;         
+  top:0;
+  left:0;
+  right:0;
+  bottom:0; 
+  display:none; 
+  padding:15px; 
+}
+
+.createboardpopup-head{
+  width:100%;
+  height:40px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-bottom: solid gray 1px;
+}
+
+.createboardpopup{
+  width: 41%;
+  min-width:30%;
+  height: 79%;
+  border-radius:10px;       
+  overflow:hidden;          
+  background-color:white; 
+  box-shadow: 5px 10px 10px 1px rgba(0,0,0,.3); 
+}
+
+.img_insert_form{
+	width: 100%;
+	height:93%;
+}
+
+.board_content{
+	width: 100%;
+	height:50%;
+	position: relative;
+	left: 0%;
+	top: 29%;
+	text-align: center;
+}
+
+.board_img{
+	width: 100%;
+	height: 30%;
+	border-bottom-left-radius:2%;
+	display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.img_insert_button{
+	width: 150px;
+	margin-top: 10px;
+	padding: 6px 12px;
+	border-radius: 10px;
+	background: #0095f6;
+	border: white;
+	font-weight: border;
+	color: white;
+	cursor: pointer;
+	
+}
+
+.img_insert_lable{
+	display: flex;
+  	align-items: center;
+  	justify-content: center;
+}
+
+#imginsert_file {
+  display: none;
+}
+
+.img_insert_button:hover{
+	background: #0081d7;
+}
