@@ -5,6 +5,18 @@ public class FollowDTO {
 	private String following_id;
 	private String follower_id;
 	
+
+	public FollowDTO(String follow_id, String following_id, String follower_id) {
+		super();
+		this.follow_id = follow_id;
+		this.following_id = following_id;
+		this.follower_id = follower_id;
+	}
+	@Override
+	public String toString() {
+		return "FollowDTO [follow_id=" + follow_id + ", following_id=" + following_id + ", follower_id=" + follower_id
+				+ "]";
+	}
 	public String getFollow_id() {
 		return follow_id;
 	}

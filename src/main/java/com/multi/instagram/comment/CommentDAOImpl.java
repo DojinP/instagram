@@ -14,7 +14,7 @@ public class CommentDAOImpl implements CommentDAO {
 	@Override
 	public List<CommentDTO> selectAll(String board_id) {
 		String sql = "select * from comment_table where board_id=?";
-		return template.query(sql, new CommentRowMapper());
+		return template.query(sql, new Object[] {board_id}, new CommentRowMapper());
 	}
 
 	@Override

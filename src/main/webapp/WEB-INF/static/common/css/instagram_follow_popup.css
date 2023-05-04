@@ -1,0 +1,47 @@
+@charset "UTF-8";
+.modal-size{
+   height: 40%; 
+}
+.bnt2{
+	border: none;
+	width: 80px;
+	border-radius: 10%;
+}
+.list_image_box{
+	width:50px;
+	height:50px;
+}
+.profile_image2{
+    width: 100%;
+    height: 100%;
+    border-width: 5px;
+    border-radius: 70%;
+    overflow: hidden 
+}
+
+.list_box{
+	width: 100%;
+	height: 30%;
+	padding:3%;
+}
+.modal-header{
+	display: flex;
+}
+
+.list1{
+	width: 15%;
+}
+.list2{
+	width:60%;
+	text-align: left;
+
+}
+.list3{
+	width:20%;
+}
+.list_profile{
+	display: inline-block;
+}
+.head_font{
+	font-weight: bold;
+}

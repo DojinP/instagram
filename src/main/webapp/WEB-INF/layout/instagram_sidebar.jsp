@@ -98,13 +98,37 @@
 						</div>
 						<div class="nav-items-box">
 							<a href="#">
-								<div class="nav-items-detail" onclick="location.href='/instagram/member/profile'">
+								<div class="nav-items-detail" onclick="location.href='/instagram/myprofile'">
 									<div class="nav-items-img" id="user_profile" >
 										<div class="user_profile_img">
 											<img src="/instagram/images/profile-pic.png" class="icon" alt="">
 										</div>
 									</div>
 									<div class="nav-items-text">프로필</div>
+								</div>
+							</a>
+						</div>
+						<div class="nav-items-box">
+							<a href="#">
+								<div class="nav-items-detail" onclick="location.href='/instagram/member/update'">
+									<div class="nav-items-img" id="user_profile" >
+										<div class="user_profile_img">
+											<img src="/instagram/images/profile-pic.png" class="icon" alt="">
+										</div>
+									</div>
+									<div class="nav-items-text">회원수정</div>
+								</div>
+							</a>
+						</div>
+						<div class="nav-items-box">
+							<a href="#">
+								<div class="nav-items-detail" onclick="location.href='/instagram/member/delete.do'">
+									<div class="nav-items-img" id="user_profile" >
+										<div class="user_profile_img">
+											<img src="/instagram/images/profile-pic.png" class="icon" alt="">
+										</div>
+									</div>
+									<div class="nav-items-text">회원탈퇴</div>
 								</div>
 							</a>
 						</div>

@@ -17,7 +17,11 @@
 		<input type="button" value="로그인" onclick="location.href='/instagram/view/login'"/>
 	<%}else{ %>
 		<input type="button" value="로그아웃" onclick="location.href='/instagram/logout.do'"/>
+		<input type="button" value="회원수정" onclick="location.href='/instagram/member/update'"/>
+		<input type="button" value="회원탈퇴" onclick="location.href='/instagram/member/delete.do'"/>
 	<%} %>
-	<input type="button" value="회원가입" onclick="location.href='/instagram/view/signup'"/>	
+	<input type="button" value="회원가입" onclick="location.href='/instagram/view/signup'"/>
+	<br/><hr/>
+	
 </body>
 </html>

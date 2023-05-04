@@ -37,6 +37,10 @@
   width:100%;
   cursor:pointer;
 }
+#popupclose{
+	font-weight: bolder;
+	color: red;
+}
 .body-contentbox{     
   word-break:break-word;   
   overflow-y:auto;          

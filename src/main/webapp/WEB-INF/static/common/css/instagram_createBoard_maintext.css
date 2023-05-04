@@ -84,7 +84,7 @@ hr{
 .maintext_board_img{
 	width: 70%;
 	height: 100%;
-	background-color: skyblue;
+	border-right: solid 1px gray;
 	border-bottom-left-radius:2%;
 	
 }
@@ -154,4 +154,44 @@ hr{
 .createbox-emoticon img{
 	width: 20px;
     height: 20px;
+}
+
+.board_img{
+	width: 100%;
+	height: 30%;
+	border-bottom-left-radius:2%;
+	display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.img_insert_button{
+	width: 150px;
+	margin-top: 10px;
+	padding: 6px 12px;
+	border-radius: 10px;
+	background: #0095f6;
+	border: white;
+	font-weight: border;
+	color: white;
+	cursor: pointer;
+	
+}
+
+.img_insert_lable{
+	display: flex;
+  	align-items: center;
+  	justify-content: center;
+}
+
+#imginsert_file {
+  display: none;
+}
+
+.img_insert_button:hover{
+	background: #0081d7;
+}
+
+.board_text{
+	text-align: center;
 }

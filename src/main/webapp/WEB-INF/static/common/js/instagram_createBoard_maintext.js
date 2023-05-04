@@ -5,8 +5,7 @@ $(document).ready(function(){
 		}
 	});	
 	
-	
-  $("#createBoardNext").click(function(){        
+  $("#createBoard").click(function(){        
       $("#maintextpopup").css('display','flex').hide().fadeIn();
       
   });
@@ -21,6 +20,5 @@ $(document).ready(function(){
   function modalClose(){
       $("#maintextpopup").fadeOut(); //페이드아웃 효과
   }
-  
   
 });
