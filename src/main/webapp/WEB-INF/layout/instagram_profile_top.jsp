@@ -22,7 +22,7 @@
 				<div class="top1">
 					<div class="profile_id">
 						<!-- 닉네임으로 변경 -->
-						<span class="user_id"><%=session_member.getNickname()%></span>
+						<span class="user_id"><%=member.getNickname()%></span>
 
 						<%
 						/* if (session_member != null & ) { */

@@ -5,7 +5,7 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%
-	MemberDTO member = (MemberDTO) session.getAttribute("member");
+	MemberDTO member = (MemberDTO) request.getAttribute("member");
 %>
 <html>
 <head>
@@ -30,15 +30,6 @@
   integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
   crossorigin="anonymous"></script>
 </head>
-
-<body>
-
-	<jsp:include page="../layout/instagram_sidebar.jsp" />
-	<jsp:include page="../layout/instagram_profile_top.jsp">
-		<jsp:param name="followingCount" value='<%=request.getAttribute("followingCount") %>'></jsp:param>
-		<jsp:param name="followerCount" value='<%=request.getAttribute("followerCount") %>'></jsp:param>
-	</jsp:include>
-	
 	<script type="text/javascript">
 	function fnOpenPopup (popupType) {
 		var url = "";
@@ -52,7 +43,17 @@
 			$("#followModal").load(url);
 		}
 	}
+
 	</script>
+<body>
+
+	<jsp:include page="../layout/instagram_sidebar.jsp" />
+	<jsp:include page="../layout/instagram_profile_top.jsp">
+		<jsp:param name="followingCount" value='<%=request.getAttribute("followingCount") %>'></jsp:param>
+		<jsp:param name="followerCount" value='<%=request.getAttribute("followerCount") %>'></jsp:param>
+		<jsp:param name="pageType" value='<%=request.getAttribute("pageType") %>'></jsp:param>
+	</jsp:include>
+
 	
 	<div id="target_follower_modal" class="modal">
 		<div id="followerModal" class="modal-size modal-dialog modal-dialog-scrollable">
