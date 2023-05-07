@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.multi.instagram.board.BoardFileDTO;
 import com.multi.instagram.member.MemberDTO;
 import com.multi.instagram.member.MemberService;
 
@@ -24,8 +25,7 @@ public class FollowController {
 		HttpSession session = request.getSession();
 		MemberDTO member = (MemberDTO) session.getAttribute("loginUser");
 		String follower_id = member.getId();
-		int result = service.connectFollow(follower_id, following_id);
-		
+		int result = service.connectFollow(follower_id, following_id);	
 		if (result == 1) {
 			return "redirect:/myprofile?pageType=user&member_id=" + following_id;
 		} else {
@@ -76,13 +76,14 @@ public class FollowController {
 	}
 	
 	@RequestMapping("/myprofile")
-	public ModelAndView myprofile(HttpServletRequest request, String pageType, String member_id) {
+	public ModelAndView myprofile(HttpSession session, String pageType, String member_id) {
 		ModelAndView mav = new ModelAndView("follow/instagram_profile");
-		HttpSession session = request.getSession();
 		MemberDTO member = (MemberDTO) session.getAttribute("loginUser");		
 		if (pageType.equals("user")) {
 			member = service.getMember(member_id);
 		}
+		int id = Integer.parseInt(member.getId());
+		List<BoardFileDTO> boardlist = service.getMyData(id);
 		
 		int followCount = service.getFollowCount(member.getId());
 		int followerCount = service.getFollowerCount(member.getId());
@@ -91,9 +92,9 @@ public class FollowController {
 		mav.addObject("followingCount",followCount);
 		mav.addObject("followerCount", followerCount);
 		mav.addObject("pageType", pageType);
+		mav.addObject("boardlist", boardlist);
 		//팝업 open할 페이지 구분하기 위해 type도 전송
 		return mav;
 	}
 	
 }
-

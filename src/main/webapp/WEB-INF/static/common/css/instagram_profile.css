@@ -121,14 +121,17 @@
 .post_box{
 	display: flex;
 	justify-content: center;
-	padding-left: 500px;
 }
-.post_photo{
+.post_photo_list{
 	display: inline-flex;
 	height: 400px;
 	width : 400px;
 	margin: 5px;
 	
+}
+.post_photo{
+	height: 350px;
+	width: 350px;	
 }
 .story_list_image{
 	display: inline-flex;

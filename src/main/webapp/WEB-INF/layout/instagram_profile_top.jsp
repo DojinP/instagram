@@ -1,3 +1,4 @@
+<%@page import="com.multi.instagram.board.BoardFileDTO"%>
 <%@page import="com.multi.instagram.follow.FollowDTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
@@ -11,18 +12,19 @@
 	MemberDTO session_member = (MemberDTO) session.getAttribute("loginUser");
 	MemberDTO member = (MemberDTO) request.getAttribute("member");
 	FollowDTO followAsMember = (FollowDTO) request.getAttribute("followAsMember");
+	List<BoardFileDTO> boardlist = (List<BoardFileDTO>) request.getAttribute("boardlist");
 %>
 <div>
 	<div class="wrapper">
 		<div class="profile_contents_box">
 			<div class="profile_image_box">
-				<img class="profile_image" src="/instagram/images/cover 1.png">
+				<img class="profile_image" src="/instagram/images/profile-pic.png">
 			</div>
 			<div class="profile_contents_box2">
 				<div class="top1">
 					<div class="profile_id">
 						<!-- 닉네임으로 변경 -->
-						<span class="user_id"><%=member.getNickname()%></span>
+						<span class="user_id"><%=session_member.getNickname()%></span>
 
 						<%
 						/* if (session_member != null & ) { */
@@ -45,7 +47,7 @@
 				</div>
 				<div class="top2">
 					<ul class="text_box">
-						<li class="text_list">게시물 20</li>
+						<li class="text_list">게시물 <%=boardlist.size() %></li>
 						<li class="text_list">
 							<button type="button" class="bnt" id="btnOpenModal"
 								onclick="javascript:fnOpenPopup('follower');"

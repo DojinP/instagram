@@ -2,6 +2,7 @@ package com.multi.instagram.follow;
 
 import java.util.List;
 
+import com.multi.instagram.board.BoardFileDTO;
 import com.multi.instagram.member.MemberDTO;
 
 
@@ -14,5 +15,6 @@ public interface FollowService {
 	public int disconnectFollow(String follow_id);
 	MemberDTO getMember(String member_id);
 	FollowDTO getFollowAsMember(String loginId, String member_id);
+	List<BoardFileDTO> getMyData(int writer_id);
 
 }
