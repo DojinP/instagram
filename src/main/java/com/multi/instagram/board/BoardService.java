@@ -12,11 +12,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service("BoardService")
-public class BoardService implements BoardAbstractService{
+public class BoardService implements BoardAbstractService {
 
 	@Autowired
 	BoardDAO dao;
-	
+
 	@Override
 	public int insertBoard(BoardDTO board) {
 		return dao.insertBoard(board);
@@ -34,7 +34,14 @@ public class BoardService implements BoardAbstractService{
 	public List<BoardDTO> selectBoard() {
 		return dao.selectBoard();
 	}
-	
+
+	// 김혜원 추가
+	@Override
+	public List<BoardFileDTO> selectLikeFile(int boardId) {
+
+		return dao.selectLikeFile(boardId);
+	}
+
 	@Override
 	public List<BoardFileDTO> selectFile() {
 		return dao.selectFile();
@@ -57,6 +64,5 @@ public class BoardService implements BoardAbstractService{
 	public int update(String boardContent, String boardId) {
 		return dao.updateBoard(boardContent, boardId);
 	}
-	
 
 }
