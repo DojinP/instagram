@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.multi.instagram.board.BoardFileDTO;
 import com.multi.instagram.member.MemberDTO;
 
 
@@ -51,6 +52,11 @@ public class FollowServiceImpl implements FollowService {
 	@Override
 	public FollowDTO getFollowAsMember(String loginId, String member_id) {
 		return dao.getFollowAsMember(loginId, member_id);
+	}
+	
+	@Override
+	public List<BoardFileDTO> getMyData(int writer_id){
+		return dao.getMyData(writer_id);
 	}
 
 }

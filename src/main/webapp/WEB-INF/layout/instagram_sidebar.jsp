@@ -98,7 +98,7 @@
 						</div>
 						<div class="nav-items-box">
 							<a href="#">
-								<div class="nav-items-detail" onclick="location.href='/instagram/myprofile'">
+								<div class="nav-items-detail" onclick="location.href='/instagram/myprofile?pageType=my'">
 									<div class="nav-items-img" id="user_profile" >
 										<div class="user_profile_img">
 											<img src="/instagram/images/profile-pic.png" class="icon" alt="">

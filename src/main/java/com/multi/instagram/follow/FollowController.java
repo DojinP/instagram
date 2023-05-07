@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.multi.instagram.board.BoardFileDTO;
 import com.multi.instagram.member.MemberDTO;
 import com.multi.instagram.member.MemberService;
 
@@ -24,8 +25,7 @@ public class FollowController {
 		HttpSession session = request.getSession();
 		MemberDTO member = (MemberDTO) session.getAttribute("loginUser");
 		String follower_id = member.getId();
-		int result = service.connectFollow(follower_id, following_id);
-		
+		int result = service.connectFollow(follower_id, following_id);	
 		if (result == 1) {
 			return "redirect:/myprofile?pageType=user&member_id=" + following_id;
 		} else {
@@ -35,7 +35,7 @@ public class FollowController {
 	//팔로우리스트
 	@RequestMapping("/open_follow_popup.do")
 	public ModelAndView followlist(String member_id, String pageType) {
-		ModelAndView mav = new ModelAndView("layout/instagram_follow_popup");
+		ModelAndView mav = new ModelAndView("follow/instagram_follow_popup");
 		List<FollowDTO> followlist = service.getFollowList(member_id);	
 		List<MemberDTO> memberlist =  memberserivce.member_list();
 		mav.addObject("followlist",followlist);
@@ -48,7 +48,7 @@ public class FollowController {
 	//팔로워리스트
 	@RequestMapping("/open_follower_popup.do")
 	public ModelAndView followerlist(String member_id, String pageType) {
-		ModelAndView mav = new ModelAndView("layout/instagram_follower_popup");
+		ModelAndView mav = new ModelAndView("follow/instagram_follower_popup");
 		List<FollowDTO> followerlist = service.getFollowerList(member_id);
 		List<MemberDTO> memberlist =  memberserivce.member_list();
 		mav.addObject("followerlist",followerlist);
@@ -76,38 +76,25 @@ public class FollowController {
 	}
 	
 	@RequestMapping("/myprofile")
-	public ModelAndView myprofile(HttpSession session, String pageType) {
+	public ModelAndView myprofile(HttpSession session, String pageType, String member_id) {
 		ModelAndView mav = new ModelAndView("follow/instagram_profile");
-		MemberDTO member = (MemberDTO) session.getAttribute("loginUser");
+		MemberDTO member = (MemberDTO) session.getAttribute("loginUser");		
+		if (pageType.equals("user")) {
+			member = service.getMember(member_id);
+		}
+		int id = Integer.parseInt(member.getId());
+		List<BoardFileDTO> boardlist = service.getMyData(id);
 		
 		int followCount = service.getFollowCount(member.getId());
 		int followerCount = service.getFollowerCount(member.getId());
 		
-		System.out.println("followCount " + followCount);
-		System.out.println("followerCount " + followerCount);
-
-//		mav.addObject("followingCount",followCount);
-//		mav.addObject("followerCount", followerCount);
-//		mav.addObject("pageType", pageType);
-
+		mav.addObject("member", member);
+		mav.addObject("followingCount",followCount);
+		mav.addObject("followerCount", followerCount);
+		mav.addObject("pageType", pageType);
+		mav.addObject("boardlist", boardlist);
 		//팝업 open할 페이지 구분하기 위해 type도 전송
 		return mav;
 	}
 	
-	
-	  @RequestMapping("/userprofile") 
-	  public ModelAndView userprofile(HttpServletRequest request, String member_id) { 
-		  ModelAndView mav = new ModelAndView("member/instagram_profile"); 
-		  MemberDTO member = (MemberDTO) service.getMember(member_id);
-	  
-		  int followCount = service.getFollowCount(member.getId()); 
-		  int followerCount = service.getFollowerCount(member.getId());
-	  
-		  mav.addObject("member", member); mav.addObject("followingCount",followCount);
-		  mav.addObject("followerCount", followerCount);
-		  //팝업 open할 페이지 구분하기 위해 type도 전송
-		  return mav; 
-	  }
-	
 }
-

@@ -1,4 +1,3 @@
-
 <%@page import="com.multi.instagram.member.MemberDTO"%>
 <%@page import="com.multi.instagram.follow.FollowDTO"%>
 <%@page import="java.util.ArrayList"%>
