@@ -78,8 +78,8 @@ List<BoardFileDTO> boardlist = (List<BoardFileDTO>) request.getAttribute("boardl
 				<div class="post_box">
 			<% }%>
 			<div class="post_photo_list">
-				<img class="post_photo" src="/instagram/upload/<%=filedto.getStoreFilename()%>"
-					onclick="location.href='/instagram/board/detail?boardId=<%=filedto.getBoardId()%>'">
+				<img class="post_photo" src="/instagram/upload/<%=filedto.getStoreFilename()%>">
+				<!-- onclick="location.href='/instagram/board/detail?boardId=<%=filedto.getBoardId()%>'"추가해보기 -->
 			</div>
 			<!-- 사진의 빈칸부분을 채울코드(3칸씩 채워야함) -->
 			<%
