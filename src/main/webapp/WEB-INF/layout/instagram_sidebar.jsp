@@ -41,7 +41,7 @@
 					</div>
 					<div class="nav-items-box">
 						<a href="#">
-							<div class="nav-items-detail" onclick="location.href='/instagram/main/DM'">
+							<div class="nav-items-detail" onclick="location.href='/instagram/dm.insta'">
 								<div class="nav-items-img">
 									<img src="/instagram/images/messenger.png" class="icon" alt="">
 								</div>
