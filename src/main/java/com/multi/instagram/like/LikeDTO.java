@@ -7,6 +7,8 @@ public class LikeDTO {
 	private int likeId;
 	private int boardId;
 	private int userId;
+	//추가
+	private String storeFilename;
 	
 	public LikeDTO(int boardId, int userId) {
 		super();
@@ -19,7 +21,16 @@ public class LikeDTO {
 	public String toString() {
 		return "LikeHeartDTO [likeId=" + likeId + ", boardId=" + boardId + ", userId=" + userId + "]";
 	}
-
+	//추가
+	public String getStoreFilename() {
+	     return storeFilename;
+	}
+	
+	//추가
+	public void setStoreFilename(String storeFilename) {
+	     this.storeFilename = storeFilename;
+	}
+	    
 	public int getLikeId() {
 		return likeId;
 	}

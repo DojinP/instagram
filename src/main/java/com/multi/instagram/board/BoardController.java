@@ -16,6 +16,8 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.util.WebUtils;
 
+import com.multi.instagram.like.LikeDTO;
+import com.multi.instagram.like.LikeServiceImpl;
 import com.multi.instagram.member.MemberDTO;
 import com.multi.instagram.member.MemberService;
 
@@ -30,15 +32,23 @@ public class BoardController {
 	@Autowired
 	BoardFileUploadLogic fileUploadService;
 	
+	@Autowired
+	LikeServiceImpl likeservice;
+	
 	@RequestMapping("/main.do")
-	public ModelAndView mainPage() {
+	public ModelAndView mainPage(HttpSession session) {
+		MemberDTO memberDto = (MemberDTO) session.getAttribute("loginUser");
+		int userId = Integer.parseInt(memberDto.getId()); 
+		
 		ModelAndView mav = new ModelAndView("main/instagram_main_page");
 		List<BoardDTO> boardlist = boardservice.selectBoard();
 		List<BoardFileDTO> boardfilelist = boardservice.selectFile();
+		
 		List<MemberDTO> memberlist = memberserivce.member_list();
-//		System.out.println(boardlist);
-//		System.out.println(boardfilelist);
-//		System.out.println(memberlist);
+		for (BoardDTO dto : boardlist) {
+			List<LikeDTO> count = likeservice.select(dto.getBoardId(),userId);
+			dto.setLikeList(count);			
+		}
 		mav.addObject("boardlist", boardlist);
 		mav.addObject("boardfilelist", boardfilelist);
 		mav.addObject("memberlist", memberlist);

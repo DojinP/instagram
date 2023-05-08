@@ -27,12 +27,35 @@ public class LikeController {
 	@Autowired
 	MemberService memberserivce;
 
+	// 추가
+	@RequestMapping("/like.do")
+	public ModelAndView likePage(HttpSession session) {
+
+		MemberDTO memberDto = (MemberDTO) session.getAttribute("loginUser");
+		int userId = Integer.parseInt(memberDto.getId());
+
+		List<LikeDTO> likelist = service.select_like_user(userId);
+		ModelAndView mav = new ModelAndView("like/instagram_post_like");
+
+		for (LikeDTO dto : likelist) {
+			int boardId = dto.getBoardId();
+			List<BoardFileDTO> boardfilelist = boardservice.selectLikeFile(boardId);
+			if (boardfilelist.size() != 0) {
+				dto.setStoreFilename(boardfilelist.get(0).getStoreFilename());
+			}
+		}
+
+		mav.addObject("likelist", likelist);
+		return mav;
+
+	}
+
 	@RequestMapping("/instagram_post_like")
 	public ModelAndView showPage(int userid) {
-		List<BoardDTO> output = service.Like_List(userid); 
+		List<BoardDTO> output = service.Like_List(userid);
 		System.out.println(output);
 		ModelAndView mav = new ModelAndView("main/instagram_post_like");
-    	mav.addObject("output",output);
+		mav.addObject("output", output);
 		return mav;
 	}
 
@@ -45,29 +68,26 @@ public class LikeController {
 	public ModelAndView like_insert(int boardId, int userId) {
 		ModelAndView mav = new ModelAndView("main/instagram_popup_alert");
 		List<LikeDTO> count = service.select(boardId, userId);
-		String rediPath = "";	// 리디렉션 path
-		String alertMsg = "";	// 성공 여부 메시지 저장
+		String rediPath = ""; // 리디렉션 path
+		String alertMsg = ""; // 성공 여부 메시지 저장
 
-		if(count.size() > 0) 
-		{
+		if (count.size() > 0) {
 			rediPath = "/instagram/main.do";
 			alertMsg = "이미 좋아요를 누른 게시물 입니다.";
 
-		}
-		else 
-		{
+		} else {
 
 			int result = service.insert(boardId, userId);
 
 			rediPath = "/instagram/main.do";
 			alertMsg = "좋아요를 눌렀습니다. ";
-			
+
 		}
 
 		mav.addObject("alertMsg", alertMsg);
 		mav.addObject("rediPath", rediPath);
 		return mav;
-		
+
 	}
 
 //	//빈 하트 클릭 시 하트 저장
