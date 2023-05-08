@@ -10,6 +10,8 @@ public interface BoardAbstractService {
 	List<BoardDTO> selectBoard();
 	List<BoardFileDTO> selectFile();
 	
+	List<BoardFileDTO> selectLikeFile(int boardId);
+	
 	BoardUploadDTO readBoard(String boardId, String WriterId);
 	int deleteBoard(String boardId);
 	int update(String boardContent, String boardId);

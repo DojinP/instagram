@@ -36,6 +36,12 @@ public class BoardService implements BoardAbstractService{
 	}
 	
 	@Override
+	public List<BoardFileDTO> selectLikeFile(int boardId) {
+
+		return dao.selectLikeFile(boardId);
+	}
+	
+	@Override
 	public List<BoardFileDTO> selectFile() {
 		return dao.selectFile();
 	}

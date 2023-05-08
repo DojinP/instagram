@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.multi.instagram.board.BoardDTO;
+import com.multi.instagram.board.BoardFileDTO;
 
 @Service
 public class LikeServiceImpl implements LikeService{
@@ -13,6 +14,18 @@ public class LikeServiceImpl implements LikeService{
 	@Autowired
 	LikeDAO dao;
 	
+	//추가
+	@Override
+	public List<BoardFileDTO> select_like_board(int userId) {
+		
+		return dao.select_like_board(userId);
+	}
+	//추가
+	@Override
+	public List<LikeDTO> select_like_user(int userId) {
+		
+		return dao.select_like_user(userId);
+	}
 
 	@Override
 	public List<LikeDTO> read(String userId, String boardId) {
@@ -49,6 +62,5 @@ public class LikeServiceImpl implements LikeService{
 	}
 
 	
-
 
 }

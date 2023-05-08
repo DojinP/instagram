@@ -45,6 +45,12 @@ public class BoardDAOImpl implements BoardDAO{
 	}
 	
 	@Override
+	public List<BoardFileDTO> selectLikeFile(int boardId) {
+		String sql = "select * from content_table where board_id = ?";
+		return template.query(sql, new Object[] { boardId }, new BoardFileRowMapper());
+	}
+	
+	@Override
 	public List<BoardFileDTO> selectFile(){
 		return template.query("select content.* from board_table as board,"
 							+ " content_table as content where board.board_id = content.board_id", new BoardFileRowMapper());

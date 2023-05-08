@@ -9,6 +9,8 @@ public interface BoardDAO {
 	List<BoardDTO> selectBoard();
 	List<BoardFileDTO> selectFile();
 
+	List<BoardFileDTO> selectLikeFile(int boardId);
+	
 	BoardUploadDTO readBoard(String boardId, String writerId);
 
 	int deleteBoard(String boardId);

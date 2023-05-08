@@ -50,8 +50,8 @@
 						</a>
 					</div>
 					<div class="nav-items-box">
-						<a href="#">
-							<div class="nav-items-detail">
+						<a href="#"> 
+							<div class="nav-items-detail" onclick="location.href='/instagram/like.do'">
 								<div class="nav-items-img">
 									<img src="/instagram/images/like.png" class="icon" alt="">
 								</div>

@@ -1,4 +1,6 @@
 <%@page import="com.multi.instagram.member.MemberDTO"%>
+<%@page import="com.multi.instagram.like.LikeDTO"%>
+<%@page import="java.util.List"%>
 <%@page import="com.multi.instagram.board.BoardFileDTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.multi.instagram.board.BoardDTO"%>
@@ -73,7 +75,15 @@
                         <div class="post-content">
                             <div class="reaction-wrapper">
                                 <a href="/instagram/like_insert.do?boardId=<%=board.getBoardId()%>&userId=<%=loginUser.getId() %>">
-                                	<img src="/instagram/images/like.png" class="icon" id="likeHeart" alt="">
+                                	<%
+								List<LikeDTO> count = board.getLikeList();
+								String imgName = "like";
+								if (count != null) {
+									imgName = count.size() > 0 ? "like2" : "like";
+								} 
+								%> <img src="/instagram/images/<%=imgName%>.png" class="icon"
+								id="likeHeart" alt="">
+                                </a>
                                 </a>
                                 <img src="/instagram/images/comment.png" class="con-modal-open" id="con<%=board.getBoardId()%>" name="<%=board.getWriterId() %>" value="<%=loginUser.getId() %>" alt="">
                                 <img src="/instagram/images/send.png" class="icon" alt="">

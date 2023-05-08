@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import com.multi.instagram.like.LikeDTO;
+
 public class BoardDTO {
 	private int boardId;
 	private String writerId;
@@ -16,7 +18,15 @@ public class BoardDTO {
 	
 	// 좋아요 관련
 	private int like_count;
-	
+	private List<LikeDTO> likeList;
+
+	public List<LikeDTO> getLikeList() {
+		return likeList;
+	}
+
+	public void setLikeList(List<LikeDTO> likeList) {
+		this.likeList = likeList;
+	}
 	public BoardDTO() {
 		
 	}
